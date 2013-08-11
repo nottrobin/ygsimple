@@ -74,6 +74,7 @@ header [role=navigation] li {
     overflow: hidden;
 }
 .promotions article {
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 33.33%;
     min-width: 16em;
