@@ -57,11 +57,14 @@ header [role=navigation] li {
     padding: 1.5em 1em 0 1em;
 }
 
-.headline {
+.tagline {
     font-size: 3em;
     font-family: Alice;
     text-align: center;
     margin-bottom: 1em;
+}
+.tagline small {
+    font-size: 0.6em;
 }
 
 .promotions {
