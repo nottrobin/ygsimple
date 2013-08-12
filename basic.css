@@ -1,9 +1,8 @@
 /**
  * Basic styling
  */
-
 html {
-    font-family: 'Open Sans';
+    font-family: sans-serif;
     font-size: 1.3em;
 }
 body {
@@ -33,7 +32,7 @@ header {
     font-size: 0.8em;
 }
 header * {
-    font-family: 'Alice';
+    font-family: serif;
 }
 header h1 {
     font-size: 1.6em;
@@ -58,7 +57,7 @@ header [role=navigation] li {
 
 .tagline {
     font-size: 3em;
-    font-family: Alice;
+    font-family: serif;
     text-align: center;
     margin-bottom: 1em;
 }
@@ -132,6 +131,16 @@ header [role=navigation] li {
  * Fonts have been included as Data URLs to reduce the number of
  * HTTP requests
  */
+
+/* Custom font overrides */
+html {
+    font-family: 'Open Sans';
+}
+.inline-header, .tagline {
+    font-family: 'Alice';
+}
+
+/* The font declarations */
 
 /* http://www.google.com/fonts/specimen/Open+Sans */
 @font-face {
