@@ -1,20 +1,40 @@
 /**
- * Basic styling
+ * Normalise
+ *
+ * I'm only including reset rules where I actually need them
+ * Rather than using a generic reset stylesheet
+ */
+body {
+    margin: 0;
+}
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ Basic elements
+ ===
+
+ Text
+ ---
+ - Basic font is sans-serif
+ - Make text it 20% larger than default
+ - Headings look better not bold
+ - Footer text is small
+ - Links underlined for usability
+ - Links have no hover state - it's annoying
+ - Link colour a more subtle blue than the default
  */
 html {
     font-family: sans-serif;
     font-size: 1.2em;
 }
-body {
-    margin: 0;
-}
 h1, h2, h3, h4 {
     font-weight: normal;
 }
-h1, h2, h3, h4, p {
-    max-width: 43rem;
-    padding: 1em 1rem 0 1rem;
-    margin: 0 auto;
+footer>*, small {
+    font-size: 0.8em;
 }
 a, a:hover {
     color: #66b;
@@ -23,38 +43,89 @@ a:visited {
     color: #666;
 }
 
+/**
+ Spacing
+ ---
+ All containers:
+ - 43rem wide for readability
+ - centred in the page
+
+ Text elements (p, h*):
+ - 1em top spacing
+ - 1em left and right spacing
+
+ Container elements (header, section etc.)
+ - 1em bottom spacing
+
+ Navigation lists
+ - Horizontal
+*/
+h1, h2, h3, h4, p, nav {
+    max-width: 43rem;
+    margin: 0 auto;
+}
+h1, h2, h3, h4, p {
+    padding: 1em 1rem 0 1rem;
+}
+header, footer {
+    padding: 0 0 1em 0;
+}
 header {
+    border-bottom: 1px solid #666;
+}
+footer {
+    border-top: 1px solid #666;
+}
+nav ul {
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    float: left;
+    display: block;
+    padding: 1em 1em 0 0;
+}
+
+/**
+ Modules
+ ===
+*/
+
+/**
+ Inline header
+ ---
+
+ A central header, slightly wider than the text
+ with a faint underline. Serif text.
+
+ The navigation should be inline with the heading.
+*/
+.inline-header {
     border-bottom: 1px solid #ddd;
     max-width: 50rem;
     margin: 0 auto;
-    padding: 0 0 1em 0;
-    font-size: 0.8em;
-}
-header * {
+    overflow: hidden;
     font-family: serif;
 }
-header h1 {
-    font-size: 1.6em;
+.inline-header h1 {
+    font-size: 1.4em;
     float: left;
 }
-header [role=navigation] {
+.inline-header nav {
     float: right;
-    margin: 0;
-    padding: 0;
-    line-height: 2em;
+    line-height: 1.4em;
 }
-header [role=navigation] ul, [role=contentinfo] ul {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
-header [role=navigation] li {
-    float: left;
-    display: block;
+.inline-header nav li {
     padding: 1.5em 1em 0 1em;
 }
 
+/**
+ Tagline
+ ---
+
+ A stand-out statement. Very large serif text.
+*/
 .tagline {
     font-size: 3em;
     font-family: serif;
@@ -64,22 +135,34 @@ header [role=navigation] li {
 .tagline small {
     font-size: 0.6em;
 }
+@media (max-width: 43rem) {
+    .tagline {
+        font-size: 2em;
+    }
+}
 
+/**
+ Promotions
+ ---
+
+ A set of promoted articles.
+
+ They arrange in three columns at the widest settings,
+ and responsively re-arrange themselves as the screen gets thinner.
+*/
 .promotions {
     max-width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     overflow: hidden;
 }
 .promotions article {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 33.33%;
-    min-width: 16em;
+    min-width: 16.66em;
     padding: 0 0.5em 1.5em 0.5em;
     position: relative;
     float: left;
-    overflow: hidden;
 }
 .promotions article:nth-child(3n+1) {
     clear: left;
@@ -99,37 +182,70 @@ header [role=navigation] li {
 .promotions article h1 {
     font-size: 1.6em;
 }
+@media (max-width: 50rem) {
+    .promotions article {
+        width: auto;
+        float: none;
+        clear: none;
+        padding: 0 0 1em 0;
+    }
+    .promotions article:after {
+        height: 0;
+        width: 50%;
+        border-bottom: 1px solid #ddd;
+        top: 0;
+        bottom: auto;
+        left: 3em;
+    }
+    .promotions article:nth-child(3n+1):after {
+        display: block;
+    }
+    .promotions article:first-child:after {
+        display: none;
+    }
+}
 
 /**
- * Footer
+ Quiet footer
+ ---
+
+ A subtle footer with a light grey background,
+ and centralised navigational items
  */
-[role=contentinfo] {
+.quiet-footer {
     background-color: #eee;
     color: #333;
-    font-size: 0.8em;
-    margin-top: 1em;
-    padding: 0 0 1em 0;
+    border: none;
 }
-[role=contentinfo] ul {
+.quiet-footer nav {
     text-align: center;
 }
-[role=contentinfo] li {
-    text-align: left;
+.quiet-footer nav li {
+    float: none;
     display: inline-block;
     margin: 1em 0 0 0;
     padding: 0 3em;
     border-left: 1px solid #ddd;
 }
-[role=contentinfo] li:first-child {
+.quiet-footer li:first-child {
     border-left: none;
+}
+@media (max-width: 50rem) {
+    .quiet-footer nav {
+        text-align: left;
+    }
+    .quiet-footer nav li {
+        padding: 0 1em;
+    }
 }
 
 
 /**
- * Fonts
- *
- * Fonts have been included as Data URLs to reduce the number of
- * HTTP requests
+ Custom fonts
+ ===
+
+ Fonts have been included as Data URLs to reduce the number of
+ HTTP requests
  */
 
 /* Custom font overrides */
