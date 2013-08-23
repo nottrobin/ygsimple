@@ -164,6 +164,7 @@ nav li {
     position: relative;
     float: left;
 }
+/* the element following every 3 will wrap */
 .promotions article:nth-child(3n+1) {
     clear: left;
 }
@@ -174,7 +175,7 @@ nav li {
     position: absolute;
     top: 3em;
     left: 0;
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
 }
 .promotions article:nth-child(3n+1):after {
     display: none;
