@@ -100,10 +100,12 @@ nav ul {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    text-align: center;
+    word-spacing: -0.26em;
 }
 nav li {
-    float: left;
-    display: block;
+    word-spacing: 0;
+    display: inline-block;
     padding: 1em 1em 0 0;
 }
 nav li:last-child {
@@ -186,10 +188,45 @@ nav li:last-child {
 }
 .inline-header nav {
     float: right;
+    padding: 0;
     line-height: 1.4em;
 }
 .inline-header nav li {
-    padding: 1.5em 1em 0 1em;
+    padding: 1.7em 1em 0 1em;
+}
+
+/* search */
+.inline-header [role=search] input {
+    padding: 0.4em;
+    width: 200px;
+    margin-top: 2.2em;
+    border: 1px solid #ccc;
+}
+.inline-header [role=search] {
+    float: right;
+    clear: right;
+}
+.inline-header [role=search] button {
+    width: 1em;
+    height: 1em;
+    font-size: 0.9em;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    margin-bottom: 0.42em;
+    vertical-align: bottom;
+    margin-left: 0.2em;
+    cursor: pointer;
+    color: #999;
+}
+.inline-header [role=search]+nav {
+    float: none;
+    clear: both;
+}
+
+.promo-nav li:before {
+    margin-right: 0.5em;
 }
 
 /**
